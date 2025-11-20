@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteador de Números</title>
-    <script src="/SORT NUMBERS/js/sort-numbers.js"></script>
+    <style>
+        :root{--bg:#f7f7f8;--card:#ffffff;--muted:#dcdcdc;--text:#111}
+        html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);display:flex;align-items:center;justify-content:center;padding:24px}
+        .wrap{width:100%;max-width:520px;background:var(--card);border:1px solid var(--muted);border-radius:12px;padding:28px;box-shadow:0 12px 32px rgba(0,0,0,0.06);}
+        h1{margin:0 0 14px;font-size:1.35rem;text-align:center}
+        .controls{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:18px}
+        input[type=number]{width:120px;padding:10px;border-radius:8px;border:1px solid var(--muted);font-size:1rem;text-align:center}
+        button{padding:10px 14px;border-radius:8px;border:1px solid var(--muted);background:#fff;cursor:pointer;font-weight:600}
+        button:active{transform:scale(0.98)}
+        .result{margin-top:16px;text-align:center;font-weight:600}
+        .muted{font-weight:500;color:#666;margin-top:6px;text-align:center}
+    </style>
+    <script src="js/sort-numbers.js" defer></script>
 </head>
 <body>
-    
+    <div class="wrap">
+        <h1>Sorteador de Números (0–9)</h1>
+        <p class="muted">Tente adivinhar o número sorteado. Clique em "Chutar" para enviar sua tentativa.</p>
+
+        <div class="controls">
+            <input id="guessInput" type="number" min="0" max="9" placeholder="0 - 9">
+            <button id="guessBtn">Chutar</button>
+            <button id="retryBtn">Sortear Novo Número</button>
+        </div>
+
+        <div id="result" class="result" aria-live="polite"></div>
+    </div>
 </body>
 </html>
